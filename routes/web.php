@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Front\FrontController;
+use App\Http\Controllers\PanditController;
+use App\Http\Middleware\Pandit;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,5 +23,12 @@ use Illuminate\Support\Facades\Route;
 Route::controller(FrontController::class)->group(function () {
     Route::get('/', 'home')->name('home');
     Route::get('/register', 'register')->name('register');
-    
+    Route::post('/save', 'save')->name('save');
+    Route::get('/login', 'login')->name('login');
+    Route::post('/loginSubmit', 'loginSubmit')->name('loginSubmit');
+
+
+    Route::controller(PanditController::class)->prefix('pandit')->name('pandit.')->middleware(Pandit::class)->group(function () {
+        Route::get('/dashboard', 'dashboard')->name('dashboard');
+    });
 });

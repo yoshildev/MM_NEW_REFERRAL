@@ -16,13 +16,14 @@
     <link rel="stylesheet" href="{{asset('front_assets/css/bootstrap.css')}}">
     <link rel="stylesheet" href="{{asset('front_assets/css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{asset('front_assets/css/animate.min.css')}}">
-    <link rel="stylesheet" href="{{asset('front_assets/css/style.css')}}">  
+    <link rel="stylesheet" href="{{asset('front_assets/css/style.css')}}">
 </head>
 
 <body>
-    
+
         @include('front.components.header')
         @yield('content')
         @include('front.components.footer')
+        @include('front.components.messages');
 
 
