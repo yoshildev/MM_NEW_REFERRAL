@@ -12,11 +12,11 @@
                 <!-- EXPLORE MENU -->
                 <div class="bl">
                     <ul>
-                        
+
                         <li><a href="{{route('home')}}">Home</a></li>
-                        <li><a href="https://maitrymilan.com/pandit/register">Register</a></li>
-                        <li><a href="https://maitrymilan.com/pandit/login">Login</a></li>
-                       
+                        <li><a href="{{ route('register') }}">Register</a></li>
+                        <li><a href="{{ route('login') }}">Login</a></li>
+
                 </div>
 
                 <!-- USER PROFILE -->

@@ -30,5 +30,6 @@ Route::controller(FrontController::class)->group(function () {
 
     Route::controller(PanditController::class)->prefix('pandit')->name('pandit.')->middleware(Pandit::class)->group(function () {
         Route::get('/dashboard', 'dashboard')->name('dashboard');
+        Route::post('/kycSubmit', 'kycSubmit')->name('kycSubmit');
     });
 });

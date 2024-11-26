@@ -52,7 +52,8 @@
 
                             </div>
                         </div>
-                        <div class="col-md-12 col-lg-6 col-xl-4 db-sec-com">
+                        {{-- <div class="col-md-12 col-lg-6 col-xl-4 db-sec-com"> --}}
+                        <div class="col-md-12 col-lg-6 col-xl-8 db-sec-com">
                             <h2 class="db-tit">Refer Code</h2>
                             <div class="db-pro-stat">
                                 <h6 class="tit-top-curv">Refer Code</h6>
@@ -61,15 +62,13 @@
                                 </div>
                                 <div class="db-plan-detil">
                                     <ul>
-                                        <li>Plan name: <strong>Standard</strong></li>
-                                        <li>Validity: <strong>6 Months</strong></li>
-                                        <li>Valid till <strong>24 June 2024</strong></li>
-                                        <li><a href="#" class="cta-3">Upgrade now</a></li>
+                                        {{-- <li><strong>BD{{ $LOGGED_IN_PANDIT->id }}</strong></li> --}}
+                                        <li><a href="#" class="cta-3">BD{{ $LOGGED_IN_PANDIT->id }}</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-12 col-xl-4 db-sec-com">
+                        {{-- <div class="col-lg-12 col-xl-4 db-sec-com">
                             <h2 class="db-tit">Recent chat list</h2>
                             <div class="db-pro-stat">
                                 <div class="db-inte-prof-list db-inte-prof-chat">
@@ -84,7 +83,7 @@
                                     </ul>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="row">
                         <div class="col-md-12 db-sec-com">
@@ -100,16 +99,19 @@
                                     </ul> --}}
                                     <!-- Tab panes -->
                                     <!-- Tab panes -->
-                                    <form action="" method="post" enctype="multipart/form-data">
+                                    <form action="{{ route('pandit.kycSubmit') }}" method="post" enctype="multipart/form-data">
                                         @csrf
                                         <div class="row mb-4">
                                             <div class="col-4">
                                                 <div class="card">
                                                     <div class="db-int-pro-11 m-3">
-                                                        <h5>Aadhar Card</h5>
-                                                        <input type="file" name="aadhar_card" class="form-control mb-4 mt-4">
-                                                        <button type="button" class="btn btn-success btn-sm1 w-100">Accepted</button>
-                                                        {{-- <button type="button" class="btn btn-outline-danger btn-sm1 w-100">Rejected</button> --}}
+                                                        <h5>Aaadhaar Card</h5>
+                                                        <input type="file" name="aadhaar_card" class="form-control mb-4 mt-4">
+                                                        @if($LOGGED_IN_PANDIT->aadhaar_verified==1)
+                                                            <button type="button" class="btn btn-success btn-sm1 w-100">Accepted</button>
+                                                        @else
+                                                            <button type="button" class="btn btn-outline-danger btn-sm1 w-100">Pending / Rejected</button>
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </div>
@@ -118,13 +120,16 @@
                                                     <div class="db-int-pro-11 m-3">
                                                         <h5>Pan Card</h5>
                                                         <input type="file" name="pan_card" class="form-control mb-4 mt-4">
-                                                        {{-- <button type="button" class="btn btn-success btn-sm1 w-100">Accepted</button> --}}
-                                                        <button type="button" class="btn btn-outline-danger btn-sm1 w-100">Rejected</button>
+                                                        @if($LOGGED_IN_PANDIT->pan_card_verified==1)
+                                                            <button type="button" class="btn btn-success btn-sm1 w-100">Accepted</button>
+                                                        @else
+                                                            <button type="button" class="btn btn-outline-danger btn-sm1 w-100">Pending / Rejected</button>
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <button type="button" class="btn btn-success w-50">Submit</button>
+                                        <button @disabled($LOGGED_IN_PANDIT->kyc==1) type="submit" class="btn btn-success w-50">Submit</button>
                                     </form>
                                 </div>
                             </div>
