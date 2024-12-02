@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pandits;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -27,6 +28,12 @@ class PanditController extends Controller
         }else{
             return error('KYC is Already Verified');
         }
+    }
+
+    public function profiles(){
+        $users  = User::where('refer_id',Session::get('PANDIT_ID'))->with('packages','packages.package')->get();
+        // dd($users);
+        return view('front.profiles',compact('users'));
     }
 
 }

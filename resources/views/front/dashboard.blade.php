@@ -6,27 +6,7 @@
     <div class="db">
         <div class="container">
             <div class="row">
-                <div class="col-md-4 col-lg-3">
-                    <div class="db-nav">
-                        <div class="db-nav-pro"><img src="images/profiles/12.jpg" class="img-fluid" alt=""></div>
-                        <div class="db-nav-list">
-                            <ul>
-                                <li><a href="user-dashboard.html" class="act"><i class="fa fa-tachometer"
-                                            aria-hidden="true"></i>Dashboard</a></li>
-                                <li><a href="user-profile.html"><i class="fa fa-male" aria-hidden="true"></i>Profile</a>
-                                </li>
-                                <li><a href="user-interests.html"><i class="fa fa-handshake-o"
-                                            aria-hidden="true"></i>Interests</a></li>
-                                <li><a href="user-chat.html"><i class="fa fa-commenting-o" aria-hidden="true"></i>Chat
-                                        list</a></li>
-                                <li><a href="user-plan.html"><i class="fa fa-money" aria-hidden="true"></i>Plan</a></li>
-                                <li><a href="user-setting.html"><i class="fa fa-cog" aria-hidden="true"></i>Setting</a>
-                                </li>
-                                <li><a href="#"><i class="fa fa-sign-out" aria-hidden="true"></i>Log out</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                @include('front.components.adminSidebar')
                 <div class="col-md-8 col-lg-9">
 
                     <div class="row">
@@ -35,7 +15,7 @@
                             <div class="db-pro-stat">
                                 <h6>Profile completion</h6>
                                 <div class="dropdown">
-                                    <button type="button" class="btn btn-outline-secondary"
+                                    {{-- <button type="button" class="btn btn-outline-secondary"
                                         data-bs-toggle="dropdown">
                                         <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
                                     </button>
@@ -44,7 +24,7 @@
                                         <li><a class="dropdown-item" href="#">View profile</a></li>
                                         <li><a class="dropdown-item" href="#">Profile visibility settings</a>
                                         </li>
-                                    </ul>
+                                    </ul> --}}
                                 </div>
                                 <div class="db-pro-pgog">
                                     <span><b class="count">90</b>%</span>
